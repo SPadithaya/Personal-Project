@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>AllAbout Me</title>
+          <link href="p2.css" rel="stylesheet" type="text/css">
+          <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <body class="body2">
+    <h1 class="myHead1">All About Me </h1>
+<img src="Graduation.jpg" alt="Sharanya's Graduation" width="250">
+<img src="UMD.jpg" alt="Sharanya with Testudo" width="250">
+<p> Hi, my name is Sharanya. Welcome to my All About Me page. In this page, I have included fun facts about me. I have also included pictures. I hope you have fun! </p>
+<table class="grid-container">
+  <tr>
+     <th class="myClass"> What? </th>
+     <th class="myClass"> Details </th>
+     <th class="myClass"> Pics </th>
+  </tr>
+  <tr>
+    <th class="myClass"> Name </th>
+    <td colspan="2"> Sharanya Padithaya </td>
+  </tr>
+    <tr>
+      <th class="myClass"> Age </th>
+      <td colspan="2"> 18 </td>
+    </tr>
+    <tr>
+      <th class="myClass"> Intended Major </th>
+      <td> Information Sciences </td>
+      <td> <img src= "Major.jpg" alt= "Information Sciences" width="300" height="200"> </td>
+    </tr>
+    <tr>
+      <th class="myClass"> Favorite Color </th>
+      <td> Purple </td>
+      <td> <img src= "purple.png" alt= "purple" width="300"> </td>
+    </tr>
+    <tr>
+      <th class="myClass"> Favorite Food </th>
+      <td> Pizza </td>
+      <td> <img src="pizza.jpg" alt="pizza" width="300"> </td>
+    </tr>
+    <tr>
+      <th class="myClass"> Favorite Place to Visit </th>
+      <td> India </td>
+      <td> <img src="India.jpg" alt="India" width="300" height="200"> </td>
+    </tr>
+    <tr>
+      <th class="myClass"> Hobbies </th>
+      <td colspan="2"> Photography, Drawing, Volunteering, and etc. </td>
+    </tr>
+    <tr>
+      <th class="myClass"> Zodiac Sign </th>
+      <td> Cancer </td>
+      <td> <img src="cancer.jpg" alt="zodiac sign" width="100" height="100"> </td>
+    </tr>
+    <tr>
+      <th class="myClass"> Siblings </th>
+      <td colspan="2"> I have two younger brothers. One is a junior in HS and the other is a 6th grader.</td>
+    </tr>
+  </table>
+    <br>
+    <p> <a href="index.html"> Click here to go back to the homepage!</a></p>
+    <p> <a href="Resume.html"> Click here to go to the Resume page!</a></p>
+    <p> <a href="Highlights.html"> Click here to go to the Highlights page!</a></p>
+    <p> <a id="link" href="https://sites.google.com/site/somefactsaboutschooluniforms/"> Click here to go to a Google Sites I created in middle school. </a></p>
+      <!--Find a way to make the text centered in the table.-->
+      <form>
+              <fieldset>
+               <legend>What are your hobbies and what is your age range?</legend>
+               <div>
+                  <select id="preference" multiple required size=5>
+                      <option value="Drawing">Drawing</option>
+                      <option value="Reading">Reading</option>
+                      <option value="Hands On/Arts and Crafts">Hands On/Arts and Crafts</option>
+                      <option value="Sports">Sports</option>
+                      <option value="Other">Other</option>
+                  </select>
+                  <br>
+                  <input type="radio" id="ageTeen" name="ageGroup" value="teen" checked/> Teen &nbsp;
+                  <input type="radio" id="ageTwenties" name="ageGroup" value="twenties"/> 20-29 &nbsp;
+                  <input type="radio" id="ageThirties" name="ageGroup" value="thirties"/> 30-39 <br>
+               </div>
+              </fieldset>
+              <button id="processButton">Submit Survey!</button>
+              <input type="reset">
+          </form>
+          <script>
+              //
+              function main() {
+                  document.getElementById("processButton").onclick = processData;
+              }
+
+              function processData(){
+                  //declare a variable for message
+                  var message="";
+                  //declare a variable for ageChoice. We will get this variable from our form.
+                  var ageChoice = document.getElementsByName("ageGroup");
+                  ageChoice.forEach(c=>{
+                      if(c.checked){
+                          message += c.value + " is checked. \n";
+                      } else{
+                          message += c.value + " is NOT checked. \n";
+                      }
+                  });
+                  alert(message);
+                  message="";
+                  var preference = document.getElementById("preference");
+                  var options = preference.options;
+                  var genre = Array.from(options);
+                  var genreStr = genre.filter(e=> e.selected === true).map(e=>e.value).join(",");
+                  alert("The movie genre(s) preferred by the user is/are: " + genreStr);
+
+
+              }
+
+          </script>
+    </body>
+</html>
